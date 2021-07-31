@@ -1,5 +1,6 @@
 public class PercolationUnitTest {
     public static void main(String[] args) {
+        System.out.println("--- START: PercolationUnitTest ---");
         try {
             System.out.println("[ ] testNoOpenSites");
             testNoOpenSites();

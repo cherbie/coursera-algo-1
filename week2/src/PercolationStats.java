@@ -12,12 +12,13 @@ public class PercolationStats implements IPercolationStats {
             return threshold / size;
         }
     }
-    private Vector<TrialResult> results;
+    private Vector<Double> results;
 
     // perform independent trials on an n-by-n grid
     public PercolationStats(int n, int trials) {
+        results = new Vector<Double>(trials);
         for (int i = 0; i < trials; i++) {
-            results.add(runTrial(n));
+            results.add(runTrial(n).mean());
         }
     }
 
@@ -38,22 +39,21 @@ public class PercolationStats implements IPercolationStats {
 
     // sample mean of percolation threshold
     public double mean() {
-        Iterator<TrialResult> it = results.iterator();
+        Iterator<Double> it = results.iterator();
         double sum = 0;
         while (it.hasNext()) {
-            TrialResult result = it.next();
-            sum += result.mean();
+            sum += it.next();
         }
         return sum / results.size();
     }
 
     public double variance() {
-        Iterator<TrialResult> it = results.iterator();
+        Iterator<Double> it = results.iterator();
         double sampleMean = mean();
         double s = 0;
         while (it.hasNext()) {
-            TrialResult result = it.next();
-            s += Math.pow(result.mean() - sampleMean, 2);
+            double mean = it.next();
+            s += Math.pow(mean - sampleMean, 2);
         }
         s /= results.size() - 1;
         return s;

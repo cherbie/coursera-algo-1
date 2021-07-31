@@ -13,7 +13,8 @@ SRCS := \
 	QuickUnion.java \
 	WeightedQuickUnion.java \
 	IPercolationStats \
-	PercolationStats
+	PercolationStats \
+	PercolationStatsUnitTest
 
 # java class path
 CP := ./src:$(LIBDIR)/algs4.jar

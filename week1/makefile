@@ -1,17 +1,30 @@
-COMPILER = javac
-OUTPUT = ./out
-SRC = ./src
-CLASS_PATH = .:./lib/algs4.jar
+COMPILER := javac
+
+SRCDIR := ./src
+OBJDIR := ./out
+LIBDIR := ../lib
+
+SRCS := \
+	HelloGoodbye.java \
+	HelloWorld.java \
+	RandomWorld.java
+
+# java class path
+CP := ./src:$(LIBDIR)/algs4.jar
+
+# object files, auto generated from source files
+OBJS := $(patsubst %,$(OBJDIR)/%.class,$(basename $(SRCS)))
 
 
 .phony : clean
 
 
-all : $(OUTPUT)/HelloWorld.class $(OUTPUT)/HelloGoodbye.class $(OUTPUT)/RandomWorld.class
+all : $(OBJS)
 
 
-$(OUTPUT)/%.class : $(SRC)/%.java
-	$(COMPILER) -d $(OUTPUT) -cp "$(CLASS_PATH)" $^
+$(OBJDIR)/%.class : $(SRCDIR)/%.java
+	$(COMPILER) -d $(OBJDIR) -cp "$(CP)" $^
+
 
 clean :
-	rm -dfr $(OUTPUT)
+	rm -dfr $(OBJDIR)

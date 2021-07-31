@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-export CP=.:./out:./lib/algs4.jar
+export CP=./out:../lib/algs4.jar
 
 java -cp $CP HelloWorld $*
 java -cp $CP HelloGoodbye $*

@@ -1,23 +1,13 @@
 public class HelloGoodbye {
     public static void main(String[] args)
     {
-        HelloGoodbye.printConcat("Hello", args);
-        HelloGoodbye.printConcat("Goodbye", args);
-    }
-
-    private static void printConcat(String base, String[] args)
-    {
-        System.out.print(base);
-        boolean isFirst = true;
-        for (String arg : args)
-        {
-            String msg = " ";
-            if (isFirst)
-                isFirst = false;
-            else
-                msg += "and ";
-            System.out.print(msg + arg);
+        if (args.length != 2)
+            System.out.println("Usage:\n java HelloGoodbye name1 name2");
+        else {
+            // Hello
+            System.out.println("Hello " + args[0] + " and " + args[1] + ".");
+            // Goodbye
+            System.out.println("Goodbye " + args[1] + " and " + args[0] + ".");
         }
-        System.out.println("");
     }
 }

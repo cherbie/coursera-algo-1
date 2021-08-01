@@ -7,7 +7,7 @@ LIBDIR := ../lib
 SRCS := \
 	HelloGoodbye.java \
 	HelloWorld.java \
-	RandomWorld.java
+	RandomWord.java
 
 # java class path
 CP := ./src:$(LIBDIR)/algs4.jar

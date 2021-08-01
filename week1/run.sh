@@ -4,4 +4,4 @@ export CP=./out:../lib/algs4.jar
 
 java -cp $CP HelloWorld $*
 java -cp $CP HelloGoodbye $*
-java -cp $CP RandomWorld
+java -cp $CP RandomWord
